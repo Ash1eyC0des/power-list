@@ -11,7 +11,24 @@
 <body>
    <section class="row">
         <section class="column">
-            <h2>Current Power List Tasks</h2>
+            <h2>Input API Data Here:</h2>
+
+            <form action="/api" method="POST">
+                <input type="text" placeholder="Enter new task here" name="name">
+
+                <input type="hidden" value="false" name="complete">
+
+                <input type="hidden" value="0" name="completedCount">
+
+                <input type="hidden" value="<%= new Date() %>" name="date">
+
+                <button type="submit">SUBMIT NEW</button>
+
+                <!-- <button type="button" id="updateButton">UPDATE EXISTING</button> -->
+            </form>
+
+            <h2>Today's Critical Tasks</h2>
+            
             <ul class="tasks">
                 <% for(let i = 0; i < info.length; i++) { %>
                     <li class="task">
@@ -20,7 +37,16 @@
                 <% } %>
             </ul>
         </section>
+
+        <section class="column">
+            <h2>Delete API Data Here:</h2>
+
+            <input type="text" placeholder="Task to delete" name="deleteInput" id="deleteInput">
+
+            <button id="deleteButton">DELETE</button>
+        </section>
    </section>
+
     <script type="text/javascript" src="main.js"></script>    
 </body>
 </html>
